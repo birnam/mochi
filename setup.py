@@ -1,13 +1,12 @@
 #!/usr/bin/env python
 from setuptools import setup, find_packages
-from pip.download import PipSession
-from pip.req import parse_requirements
+from pip._internal.req import parse_requirements
 
 
 from mochi import __author__, __version__, __license__, GE_PYTHON_34
 
 
-install_reqs = parse_requirements('requirements.txt', session=PipSession())
+install_reqs = parse_requirements('requirements.txt', session='supyr')
 install_requires = [str(ir.req) for ir in install_reqs]
 
 if not GE_PYTHON_34:
